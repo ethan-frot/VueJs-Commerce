@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+  gap: 10px;
+}
+
+.image-container {
+  position: relative;
+}
+
+.image {
+  width: 500px;
+}
+
+.price {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  background-color: #dcac60;
+  color: white;
+}
+
+.button-container {
+  display: flex;
+  width: 100%;
+}
+
+.button {
+  border: 0;
+  width: 100%;
+  padding: 8px;
+}
+
+.like {
+  background-color: #f6859e90;
+}
+
+.cart {
+  background-color: #85c6f690;
+}

@@ -7,12 +7,22 @@ export const cardProduct = {
     price: Number,
   },
   template: `
-      <div :key="id">
-          <img :src="imgsrc" />
-          <p>{{ price }}</p>
-          <button>
-              {{ like === true ? "Liked" : "Not liked"}}
-          </button>
-      </div>
+          <div class="image-container">
+            <img :src="imgsrc" class="image" />
+            <p class="price">{{ price }} €</p>
+          </div>
+          <div class="button-container">
+            <button class="button like">
+              <i
+                v-if="like"
+                class="fa-solid fa-heart"
+                style="color: white"
+              ></i>
+              <i v-else class="fa-regular fa-heart" style="color: white"></i>
+            </button>
+            <button class="button cart">
+              <i class="fa-solid fa-cart-shopping" style="color: white"></i>
+            </button>
+          </div>
     `,
 };
