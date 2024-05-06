@@ -17,10 +17,12 @@
     <div class="product-container" id="products">
       <div v-for="productItem in productList" :key="productItem.id">
         <card-product
+          :id="productItem.id"
           :name="productItem.name"
           :imgsrc="productItem.imgSrc"
           :like="productItem.like"
           :price="productItem.price"
+          :togglelike="togglelike"
         ></card-product>
       </div>
     </div>

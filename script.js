@@ -10,6 +10,12 @@ const vm = createApp({
       productList: [],
     };
   },
+  methods: {
+    togglelike(productId) {
+      const product = this.productList.find((item) => item.id === productId);
+      product.like = !product.like;
+    },
+  },
   mounted() {
     fetch("products.json")
       .then((response) => response.json())
