@@ -5,6 +5,7 @@ export const cardProduct = {
     imgsrc: String,
     like: Boolean,
     price: Number,
+    togglelike: Function,
   },
   template: `
           <div class="image-container">
@@ -12,12 +13,8 @@ export const cardProduct = {
             <p class="price">{{ price }} €</p>
           </div>
           <div class="button-container">
-            <button class="button like">
-              <i
-                v-if="like"
-                class="fa-solid fa-heart"
-                style="color: white"
-              ></i>
+            <button @click="() => togglelike(id)" class="button like">
+              <i v-if="like" class="fa-solid fa-heart" style="color: white"></i>
               <i v-else class="fa-regular fa-heart" style="color: white"></i>
             </button>
             <button class="button cart">
