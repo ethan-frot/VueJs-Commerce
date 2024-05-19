@@ -1,7 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Inter;
+  font-weight: 500;
 }
 
 .navbar {
@@ -24,6 +28,10 @@
   i {
     color: gray;
   }
+}
+
+main {
+  display: flex;
 }
 
 .product-container {
@@ -69,4 +77,62 @@
 
 .cart {
   background-color: #85c6f690;
+}
+
+.cart-container {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #ccc;
+  padding: 0 5px 0 5px;
+  gap: 10px;
+}
+
+.cart-product {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.cart-image {
+  width: 90px;
+}
+
+.cart-info-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .cart-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &-price {
+      font-size: 14px;
+      color: rgb(60, 60, 60);
+    }
+
+    &-button {
+      all: unset;
+      cursor: pointer;
+    }
+  }
+}
+
+.total-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px 0 5px;
+
+  .total-button {
+    border: 0;
+    cursor: pointer;
+    color: white;
+    background-color: rgba(59, 59, 233, 0.7);
+    padding: 5px;
+    border-radius: 2px;
+  }
 }

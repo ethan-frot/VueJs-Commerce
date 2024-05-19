@@ -33,19 +33,43 @@
           ></i>
         </div>
       </nav>
-      <div class="product-container">
-        <div v-for="productItem in productList" :key="productItem.id">
-          <card-product
-            :id="productItem.id"
-            :name="productItem.name"
-            :imgsrc="productItem.imgSrc"
-            :like="productItem.like"
-            :price="productItem.price"
-            :togglelike="togglelike"
-            :addtocart="addToCart"
-          ></card-product>
+      <main>
+        <div class="product-container">
+          <div v-for="productItem in productList" :key="productItem.id">
+            <card-product
+              :id="productItem.id"
+              :name="productItem.name"
+              :imgsrc="productItem.imgSrc"
+              :like="productItem.like"
+              :price="productItem.price"
+              :togglelike="togglelike"
+              :addtocart="addToCart"
+            ></card-product>
+          </div>
         </div>
-      </div>
+        <div v-if="isItemInCart" class="cart-container">
+          <h2>Panier</h2>
+          <div
+            class="cart-product"
+            v-for="productInCart in cart"
+            :key="productInCart.id"
+          >
+            <product-in-cart
+              :id="productInCart.id"
+              :name="productInCart.name"
+              :imgsrc="productInCart.imgSrc"
+              :price="productInCart.price"
+              :removefromcart="removeFromCart"
+            ></product-in-cart>
+          </div>
+          <div class="total-container">
+            <h2 class="total-price">{{ totalPrice }} €</h2>
+            <button class="total-button">
+              <h3>Commander</h3>
+            </button>
+          </div>
+        </div>
+      </main>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
