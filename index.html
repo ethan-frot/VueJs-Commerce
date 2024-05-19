@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
+    <nav class="navbar">
+      <i class="fa-solid fa-heart"></i>
+      <i class="fa-solid fa-cart-shopping"></i>
+    </nav>
     <div class="product-container" id="products">
       <div v-for="productItem in productList" :key="productItem.id">
         <card-product
