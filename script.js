@@ -1,9 +1,11 @@
 import { cardProduct } from "./components/cardProduct.js";
+import { productInCart } from "./components/productInCart.js";
 
 const { createApp, ref, computed } = Vue;
 const vm = createApp({
   components: {
     "card-product": cardProduct,
+    "product-in-cart": productInCart,
   },
   data() {
     return {
@@ -18,7 +20,14 @@ const vm = createApp({
     },
     addToCart(productId) {
       const product = this.productList.find((item) => item.id === productId);
-      this.cart.push(productId);
+      if (!this.cart.some((item) => item.id === productId)) {
+        this.cart.push(product);
+      } else {
+        this.removeFromCart(productId);
+      }
+    },
+    removeFromCart(productId) {
+      this.cart = this.cart.filter((item) => item.id !== productId);
     },
   },
   computed: {
@@ -27,6 +36,9 @@ const vm = createApp({
     },
     isItemInCart() {
       return this.cart.length > 0;
+    },
+    totalPrice() {
+      return this.cart.reduce((sum, product) => sum + product.price, 0);
     },
   },
   mounted() {
