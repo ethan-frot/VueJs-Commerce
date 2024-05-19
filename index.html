@@ -14,20 +14,37 @@
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
-    <nav class="navbar">
-      <i class="fa-solid fa-heart"></i>
-      <i class="fa-solid fa-cart-shopping"></i>
-    </nav>
-    <div class="product-container" id="products">
-      <div v-for="productItem in productList" :key="productItem.id">
-        <card-product
-          :id="productItem.id"
-          :name="productItem.name"
-          :imgsrc="productItem.imgSrc"
-          :like="productItem.like"
-          :price="productItem.price"
-          :togglelike="togglelike"
-        ></card-product>
+    <div id="products">
+      <nav class="navbar">
+        <div class="navbar-item">
+          <i class="fa-solid fa-heart"></i>
+          <i
+            v-if="isItemLiked"
+            class="fa-solid fa-circle fa-2xs"
+            style="color: #ff0000"
+          ></i>
+        </div>
+        <div class="navbar-item">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <i
+            v-if="isItemInCart"
+            class="fa-solid fa-circle fa-2xs"
+            style="color: #ff0000"
+          ></i>
+        </div>
+      </nav>
+      <div class="product-container">
+        <div v-for="productItem in productList" :key="productItem.id">
+          <card-product
+            :id="productItem.id"
+            :name="productItem.name"
+            :imgsrc="productItem.imgSrc"
+            :like="productItem.like"
+            :price="productItem.price"
+            :togglelike="togglelike"
+            :addtocart="addToCart"
+          ></card-product>
+        </div>
       </div>
     </div>
 
