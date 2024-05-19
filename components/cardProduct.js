@@ -6,6 +6,7 @@ export const cardProduct = {
     like: Boolean,
     price: Number,
     togglelike: Function,
+    addtocart: Function,
   },
   template: `
           <div class="image-container">
@@ -17,7 +18,7 @@ export const cardProduct = {
               <i v-if="like" class="fa-solid fa-heart" style="color: white"></i>
               <i v-else class="fa-regular fa-heart" style="color: white"></i>
             </button>
-            <button class="button cart">
+            <button @click="() => addtocart(id)" class="button cart">
               <i class="fa-solid fa-cart-shopping" style="color: white"></i>
             </button>
           </div>

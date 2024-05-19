@@ -1,6 +1,6 @@
 import { cardProduct } from "./components/cardProduct.js";
 
-const { createApp, ref } = Vue;
+const { createApp, ref, computed } = Vue;
 const vm = createApp({
   components: {
     "card-product": cardProduct,
@@ -8,12 +8,25 @@ const vm = createApp({
   data() {
     return {
       productList: [],
+      cart: [],
     };
   },
   methods: {
     togglelike(productId) {
       const product = this.productList.find((item) => item.id === productId);
       product.like = !product.like;
+    },
+    addToCart(productId) {
+      const product = this.productList.find((item) => item.id === productId);
+      this.cart.push(productId);
+    },
+  },
+  computed: {
+    isItemLiked() {
+      return this.productList.some((item) => item.like);
+    },
+    isItemInCart() {
+      return this.cart.length > 0;
     },
   },
   mounted() {
